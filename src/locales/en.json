@@ -1,0 +1,34 @@
+{
+  "__SIDEBAR__": {
+    "overview": "Tổng quan",
+    "management": "Quản lý",
+    "order": "Đơn hàng",
+    "product": "Sản phẩm",
+    "shipment": "Vận chuyển",
+    "saleChannel": "Kênh bán hàng"
+  },
+  "__NAV__": {
+    "overview": "Tổng quan",
+    "inventory": "Kho",
+    "detail": "Chi tiết tồn kho",
+    "import": "Nhập hàng",
+    "supplier": "Nhà cung cấp",
+    "return": "Trả hàng",
+    "po": "Mua hàng",
+    "product": "Tất cả sản phẩm",
+    "promotion": "Khuyến mãi",
+    "customer": "Khách hàng",
+    "order": "Tất cả đơn hàng",
+    "shipment": "Tất cả vận chuyển",
+    "packing": "Đóng gói",
+    "dispatching": "Bàn giao",
+    "booking": "Đặt giao hàng",
+    "finance": "Tài chính",
+    "orderReconcliliation": "Đổi soát đơn hàng",
+    "codReconcliliation": "Đối soát tiền thu hộ",
+    "cost": "Chi phí"
+  },
+  "__BUTTON__": {
+    "logout": "Đăng xuất"
+  }
+}
