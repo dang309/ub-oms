@@ -18,6 +18,7 @@ import { styled, useTheme } from "@mui/material/styles";
 import { createColumnHelper, flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { sentenceCase } from "change-case";
 
+import rows from "src/_mock/supplier";
 import { UserAPI } from "src/api";
 import ConfirmationDialog from "src/components/dialogs/ConfirmationDialog";
 import EmptyContent from "src/components/EmptyContent";
@@ -25,12 +26,12 @@ import HeaderBreadcrumbs from "src/components/HeaderBreadcrumbs";
 import Label from "src/components/Label";
 import Page from "src/components/Page";
 import { useEventBus } from "src/hooks";
-import { PATH_DASHBOARD } from "src/routes/paths";
 
 import FormModal from "./components/FormModal";
 import TableAction from "./components/TableAction";
 import TableHeader from "./components/TableHeader";
 import TableToolbar from "./components/TableToolbar";
+import { PATH_DASHBOARD } from "src/routes/paths";
 
 const Management = () => {
   const { $emit } = useEventBus();
@@ -50,34 +51,57 @@ const Management = () => {
   const columnHelper = createColumnHelper();
 
   const columns = [
-    columnHelper.accessor("", {
+    columnHelper.accessor("name", {
       header: "Họ và tên",
       cell: (info) => info.getValue(),
     }),
 
-    columnHelper.accessor("", {
-      header: "So dien thoai",
+    columnHelper.accessor("phone", {
+      header: "Số điện thoại",
       cell: (info) => info.getValue(),
     }),
 
-    columnHelper.accessor("", {
-      header: "Địa chỉ",
+    columnHelper.accessor("email", {
+      header: "Email",
       cell: (info) => info.getValue(),
     }),
 
-    columnHelper.accessor("", {
-      header: "Tổng đơn hàng",
-      cell: (info) => info.getValue(),
+    columnHelper.accessor("status", {
+      header: "Trạng thái",
+      cell: (info) => {
+        const status = info.getValue();
+        return (
+          <Label
+            variant={theme.palette.mode === "light" ? "ghost" : "filled"}
+            color={(status === "active" && "success") || (status === "inactive" && "error")}
+          >
+            {sentenceCase(status)}
+          </Label>
+        );
+      },
     }),
 
-    columnHelper.accessor("", {
-      header: "Tổng tiền",
-      cell: (info) => info.getValue(),
+    columnHelper.accessor("liability", {
+      header: "Nợ phải trả",
+      cell: (info) =>
+        info
+          .getValue()
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " vnd",
+    }),
+
+    columnHelper.accessor("total", {
+      header: "Tổng mua",
+      cell: (info) =>
+        info
+          .getValue()
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " vnd",
     }),
   ];
 
   const { getHeaderGroups, getRowModel } = useReactTable({
-    data: [],
+    data: rows || [],
     columns: columns || [],
     getCoreRowModel: getCoreRowModel(),
   });
@@ -96,12 +120,12 @@ const Management = () => {
   };
 
   const handleSelectAllClick = (event) => {
-    // if (event.target.checked) {
-    //   const newSelecteds = rows.map((n) => n.id);
-    //   setSelected(newSelecteds);
-    //   return;
-    // }
-    // setSelected([]);
+    if (event.target.checked) {
+      const newSelecteds = rows.map((n) => n.id);
+      setSelected(newSelecteds);
+      return;
+    }
+    setSelected([]);
   };
 
   const handleClick = (event, id) => {
@@ -132,7 +156,7 @@ const Management = () => {
     setFilterName(event.target.value);
   };
 
-  const isEmptyContent = false;
+  const isEmptyContent = Boolean(rows && rows.length === 0);
 
   const handleDeleteRow = (id) => {
     $emit("dialog/confirmation/open", {
@@ -186,12 +210,12 @@ const Management = () => {
             <TableToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
 
             <TableContainer sx={{ minWidth: 800 }}>
-              <Table>
+              <Table size="small">
                 <TableHeader
                   order={order}
                   orderBy={orderBy}
                   getHeaderGroups={getHeaderGroups}
-                  rowCount={ 0}
+                  rowCount={rows?.length || 0}
                   numSelected={selected.length}
                   onRequestSort={handleRequestSort}
                   onSelectAllClick={handleSelectAllClick}
@@ -225,7 +249,7 @@ const Management = () => {
             <TablePagination
               rowsPerPageOptions={[5, 10, 25]}
               component="div"
-              count={ 0}
+              count={rows?.length || 0}
               rowsPerPage={rowsPerPage}
               page={page}
               onPageChange={handleChangePage}

@@ -1,12 +1,12 @@
-import { useCallback } from "react";
-import { useFieldArray, useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
 import { LoadingButton } from "@mui/lab";
 import {
   Autocomplete,
   Box,
+  Button,
   Card,
   Container,
+  Dialog,
+  DialogActions,
   DialogContent,
   DialogTitle,
   FormControl,
@@ -21,19 +21,11 @@ import {
 } from "@mui/material";
 
 import countries from "src/_mock/countries";
-import { UserAPI } from "src/api";
-import { DialogAnimate } from "src/components/animate";
-import HeaderBreadcrumbs from "src/components/HeaderBreadcrumbs";
-import Iconify from "src/components/Iconify";
-import Page from "src/components/Page";
-import { UploadAvatar } from "src/components/upload";
-import { useData } from "src/hooks";
-import { PATH_DASHBOARD } from "src/routes/paths";
 
 const FormModal = ({ open, handleClose }) => {
   return (
-    <DialogAnimate open={open} onClose={handleClose}>
-      <DialogTitle>Title</DialogTitle>
+    <Dialog open={open} onClose={handleClose}>
+      <DialogTitle>Tạo nhà cung cấp</DialogTitle>
       <DialogContent>
         <Stack spacing={3}>
           <Stack direction={{ xs: "column", sm: "row" }} spacing={{ xs: 3, sm: 2 }}>
@@ -67,15 +59,15 @@ const FormModal = ({ open, handleClose }) => {
             <TextField fullWidth label="Company" />
             <TextField fullWidth label="Role" />
           </Stack>
-
-          <Box sx={{ mt: 3, display: "flex", justifyContent: "flex-end" }}>
-            <LoadingButton type="submit" variant="contained">
-              Luu
-            </LoadingButton>
-          </Box>
         </Stack>
       </DialogContent>
-    </DialogAnimate>
+      <DialogActions>
+        <Button variant="outlined" onClick={handleClose}>Hủy</Button>
+        <LoadingButton type="submit" variant="contained">
+          Lưu
+        </LoadingButton>
+      </DialogActions>
+    </Dialog>
   );
 };
 

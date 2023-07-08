@@ -42,7 +42,7 @@ const ProductForm = Loadable(lazy(() => import("src/pages/Product/Form")));
 
 // customer
 const CustomerManagement = Loadable(lazy(() => import("src/pages/Customer/Management")));
-const CustomerForm = Loadable(lazy(() => import("src/pages/Customer/Form")));
+const CustomerDetail = Loadable(lazy(() => import("src/pages/Customer/Detail")));
 
 // order
 const OrderManagement = Loadable(lazy(() => import("src/pages/Order/Management")));
@@ -105,12 +105,8 @@ const Router = () => {
           element: <CustomerManagement />,
         },
         {
-          path: "customers/create",
-          element: <CustomerForm />,
-        },
-        {
-          path: "customers/edit/:id",
-          element: <CustomerForm />,
+          path: "customers/:id",
+          element: <CustomerDetail />,
         },
         // Order
         {

@@ -49,19 +49,18 @@ const SupplierDetail = () => {
     <Page>
       <Container maxWidth="lg">
         <HeaderBreadcrumbs
-          heading="Thông tin nhà cung cấp"
+          heading="Thông tin khách hàng"
           links={[
             {
               name: "Trang chủ",
               href: PATH_DASHBOARD.overview,
             },
             {
-              name: "Nhà cung cấp",
+              name: "Khách hàng",
               href: PATH_DASHBOARD.management.inventory.supplier.all,
             },
             {
               name: "Thông tin",
-              href: PATH_DASHBOARD.management.inventory.supplier.detail,
             },
           ]}
         />
@@ -75,7 +74,7 @@ const SupplierDetail = () => {
                     avatar={<MyAvatar />}
                     title={
                       <Typography variant="h6" color="text.primary">
-                        Tên nhà cung cấp
+                        Tên khách hàng
                       </Typography>
                     }
                     subheader={
