@@ -57,7 +57,7 @@ const ShipmentManagement = Loadable(lazy(() => import("src/pages/Shipment/Manage
 
 // supplier
 const SupplierManagement = Loadable(lazy(() => import("src/pages/Inventory/Supplier/Management")));
-const SupplierDetail = Loadable(lazy(() => import("src/pages/Inventory/Supplier")));
+const SupplierDetail = Loadable(lazy(() => import("src/pages/Inventory/Supplier/Detail")));
 
 // po
 const POManagement = Loadable(lazy(() => import("src/pages/Inventory/PO/Management")));
@@ -165,12 +165,12 @@ const Router = () => {
         {
           path: "shipments",
           element: <ShipmentManagement />,
-          index: true
+          index: true,
         },
         {
           path: "shipments/overview",
           element: <ShipmentOverview />,
-          index: true
+          index: true,
         },
       ],
     },
