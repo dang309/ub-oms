@@ -1,5 +1,7 @@
 // ----------------------------------------------------------------------
 
+import { alpha } from "@mui/material/styles";
+
 export default function Card(theme) {
   return {
     MuiCard: {
@@ -22,7 +24,9 @@ export default function Card(theme) {
       },
       styleOverrides: {
         root: {
-          padding: theme.spacing(3, 3, 0)
+          maxHeight: '64px',
+          padding: theme.spacing(1, 2),
+          borderBottom: `1px dashed ${alpha(theme.palette.grey[500], 0.24)}`,
         }
       }
     },

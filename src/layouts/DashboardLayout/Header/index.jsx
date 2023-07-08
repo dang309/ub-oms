@@ -16,19 +16,17 @@ import ToggleTheme from "./ToggleTheme";
 
 // ----------------------------------------------------------------------
 
-const DRAWER_WIDTH = 256;
-const COLLAPSE_WIDTH = 102;
+const APPBAR_MOBILE = 48;
+const APPBAR_DESKTOP = 64;
 
-const APPBAR_MOBILE = 64;
-const APPBAR_DESKTOP = 92;
-
-const RootStyle = styled(AppBar)(({ theme }) => ({
+const RootStyle = styled('header')(({ theme }) => ({
   boxShadow: "none",
   backdropFilter: "blur(6px)",
   WebkitBackdropFilter: "blur(6px)", // Fix on Mobile
   backgroundColor: alpha(theme.palette.background.default, 0.72),
   width: '100%',
-  alignSelf: 'flex-end'
+  alignSelf: 'flex-end',
+  borderBottom: `1px dashed ${alpha(theme.palette.grey[500], 0.24)}`,
 }));
 
 const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
@@ -64,8 +62,8 @@ const Header = ({ onOpenSidebar }) => {
           alignItems="center"
           spacing={{ xs: 0.5, sm: 1.5 }}
         >
-          <ToggleTheme />
-          <LanguagePopover />
+          {/* <ToggleTheme /> */}
+          {/* <LanguagePopover /> */}
           <NotificationsPopover />
           <AccountPopover />
         </Stack>

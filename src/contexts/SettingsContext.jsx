@@ -52,7 +52,7 @@ const PRIMARY_COLOR = [
     main: "#fda92d",
     dark: "#B66816",
     darker: "#793908",
-    contrastText: palette.light.grey[800],
+    contrastText: "#fff",
   },
   // RED
   {
@@ -102,9 +102,9 @@ SetColor.propTypes = {
 };
 
 const initialState = {
-  themeMode: "light",
+  themeMode: "dark",
   themeDirection: "ltr",
-  themeColor: "blue",
+  themeColor: "orange",
   themeStretch: false,
   onChangeMode: () => {},
   onChangeDirection: () => {},

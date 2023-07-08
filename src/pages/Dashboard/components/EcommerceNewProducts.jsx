@@ -35,14 +35,8 @@ const CarouselImgStyle = styled('img')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-CarouselItem.propTypes = {
-  item: PropTypes.shape({
-    image: PropTypes.string,
-    name: PropTypes.string
-  })
-};
 
-function CarouselItem({ item }) {
+const CarouselItem = ({ item }) => {
   const { image, name } = item;
 
   return (
@@ -61,7 +55,6 @@ function CarouselItem({ item }) {
         sx={{
           left: 0,
           bottom: 0,
-          maxWidth: '80%',
           textAlign: 'left',
           position: 'absolute',
           color: 'common.white'
@@ -81,7 +74,7 @@ function CarouselItem({ item }) {
   );
 }
 
-export default function EcommerceNewProducts() {
+const EcommerceNewProducts = () => {
   const theme = useTheme();
 
   const settings = {
@@ -105,3 +98,5 @@ export default function EcommerceNewProducts() {
     </Card>
   );
 }
+
+export default EcommerceNewProducts

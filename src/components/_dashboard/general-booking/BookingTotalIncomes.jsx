@@ -7,9 +7,9 @@ import trendingDownFill from '@iconify/icons-eva/trending-down-fill';
 import { styled } from '@mui/material/styles';
 import { Card, Typography, Stack } from '@mui/material';
 // utils
-import { fCurrency, fPercent } from '../../../utils/formatNumber';
+import { fCurrency, fPercent } from 'src/utils/formatNumber';
 //
-import BaseOptionChart from '../../charts/BaseOptionChart';
+import BaseOptionChart from 'src/components/charts/BaseOptionChart';
 
 // ----------------------------------------------------------------------
 

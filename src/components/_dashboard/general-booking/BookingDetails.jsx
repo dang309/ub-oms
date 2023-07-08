@@ -31,10 +31,10 @@ import {
   TableContainer
 } from '@mui/material';
 // utils
-import mockData from '../../../utils/mock-data';
+import mockData from 'src/utils/mock-data';
 //
-import Label from '../../Label';
-import Scrollbar from '../../Scrollbar';
+import Label from 'src/components/Label';
+import Scrollbar from 'src/components/Scrollbar';
 import { MIconButton } from '../../@material-extend';
 
 // ----------------------------------------------------------------------

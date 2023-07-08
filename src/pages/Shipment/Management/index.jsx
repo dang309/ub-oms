@@ -5,14 +5,20 @@ import { Icon } from "@iconify/react";
 import {
   Button,
   Card,
+  CardHeader,
   Checkbox,
+  Chip,
   Container,
+  Stack,
+  Tab,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TablePagination,
   TableRow,
+  Tabs,
+  Typography,
 } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import { createColumnHelper, flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table";
@@ -31,6 +37,7 @@ import FormModal from "./components/FormModal";
 import TableAction from "./components/TableAction";
 import TableHeader from "./components/TableHeader";
 import TableToolbar from "./components/TableToolbar";
+import { cyan } from "@mui/material/colors";
 
 const Management = () => {
   const { $emit } = useEventBus();
@@ -207,6 +214,74 @@ const Management = () => {
           />
         ) : (
           <Card>
+            <CardHeader
+              sx={{ pb: 0 }}
+              title={
+                <Tabs scrollButtons="auto" variant="scrollable" allowScrollButtonsMobile value={0}>
+                  <Tab
+                    disableRipple
+                    label={
+                      <Stack direction="row" alignItems="center" spacing={1}>
+                        <Typography>Tất cả</Typography>
+                        <Label color="info" >20</Label>
+                      </Stack>
+                    }
+                    value={0}
+                  />
+                  <Tab
+                    disableRipple
+                    label={
+                      <Stack direction="row" alignItems="center" spacing={1}>
+                        <Typography>Chờ lấy hàng</Typography>
+                        <Label color="warning">20</Label>
+                      </Stack>
+                    }
+                    value={1}
+                  />
+                  <Tab
+                    disableRipple
+                    label={
+                      <Stack direction="row" alignItems="center" spacing={1}>
+                        <Typography>Đang giao</Typography>
+                        <Label color="secondary">20</Label>
+                      </Stack>
+                    }
+                    value={2}
+                  />
+                  <Tab
+                    disableRipple
+                    label={
+                      <Stack direction="row" alignItems="center" spacing={1}>
+                        <Typography>Giao không gặp khách</Typography>
+                        <Label color="error">20</Label>
+                      </Stack>
+                    }
+                    value={3}
+                  />
+                  <Tab
+                    disableRipple
+                    label={
+                      <Stack direction="row" alignItems="center" spacing={1}>
+                        <Typography>Đã giao</Typography>
+                        <Label color="success">20</Label>
+                      </Stack>
+                    }
+                    value={4}
+                  />
+                  <Tab
+                    disableRipple
+                    label={
+                      <Stack direction="row" alignItems="center" spacing={1}>
+                        <Typography>Đã chuyển hoàn</Typography>
+                        <Label>20</Label>
+                      </Stack>
+                    }
+                    value={5}
+                  />
+                </Tabs>
+              }
+            />
+
             <TableToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
 
             <TableContainer sx={{ minWidth: 800 }}>
@@ -215,7 +290,7 @@ const Management = () => {
                   order={order}
                   orderBy={orderBy}
                   getHeaderGroups={getHeaderGroups}
-                  rowCount={ 0}
+                  rowCount={0}
                   numSelected={selected.length}
                   onRequestSort={handleRequestSort}
                   onSelectAllClick={handleSelectAllClick}
@@ -249,7 +324,7 @@ const Management = () => {
             <TablePagination
               rowsPerPageOptions={[5, 10, 25]}
               component="div"
-              count={ 0}
+              count={0}
               rowsPerPage={rowsPerPage}
               page={page}
               onPageChange={handleChangePage}

@@ -4,8 +4,8 @@ import ReactApexChart from 'react-apexcharts';
 import { useTheme } from '@mui/material/styles';
 import { Card, Typography, Stack, Divider, useMediaQuery } from '@mui/material';
 // utils
-import { fNumber } from '../../../utils/formatNumber';
-import { BaseOptionChart } from '../../charts';
+import { fNumber } from 'src/utils/formatNumber';
+import { BaseOptionChart } from 'src/components/charts';
 
 // ----------------------------------------------------------------------
 

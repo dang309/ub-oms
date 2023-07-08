@@ -8,10 +8,10 @@ import closeCircleFill from '@iconify/icons-eva/close-circle-fill';
 import { useTheme } from '@mui/material/styles';
 import { Card, Chip, Stack, Avatar, Rating, Button, CardHeader, Typography } from '@mui/material';
 // utils
-import { fDateTime } from '../../../utils/formatTime';
-import mockData from '../../../utils/mock-data';
+import { fDateTime } from 'src/utils/formatTime';
+import mockData from 'src/utils/mock-data';
 //
-import { CarouselControlsArrowsBasic1 } from '../../carousel';
+import { CarouselControlsArrowsBasic1 } from 'src/components/carousel';
 
 // ----------------------------------------------------------------------
 

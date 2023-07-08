@@ -35,6 +35,9 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import "simplebar-react/dist/simplebar.min.css";
 // lightbox
 import "react-image-lightbox/style.css";
+// slick-carousel
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 // ----------------------------------------------------------------------
 

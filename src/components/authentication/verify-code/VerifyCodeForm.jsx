@@ -8,7 +8,7 @@ import { LoadingButton } from '@material-ui/lab';
 // routes
 import { PATH_DASHBOARD } from '../../../routes/paths';
 // utils
-import fakeRequest from '../../../utils/fakeRequest';
+import fakeRequest from 'src/utils/fakeRequest';
 
 // ----------------------------------------------------------------------
 

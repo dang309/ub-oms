@@ -52,12 +52,12 @@ const Management = () => {
 
   const columns = [
     columnHelper.accessor("name", {
-      header: "Tên",
+      header: "Họ và tên",
       cell: (info) => info.getValue(),
     }),
 
     columnHelper.accessor("phone", {
-      header: "So dien thoai",
+      header: "Số điện thoại",
       cell: (info) => info.getValue(),
     }),
 
@@ -67,7 +67,7 @@ const Management = () => {
     }),
 
     columnHelper.accessor("status", {
-      header: "Trang thai",
+      header: "Trạng thái",
       cell: (info) => {
         const status = info.getValue();
         return (
@@ -82,7 +82,7 @@ const Management = () => {
     }),
 
     columnHelper.accessor("liability", {
-      header: "No phai tra",
+      header: "Nợ phải trả",
       cell: (info) =>
         info
           .getValue()
@@ -91,7 +91,7 @@ const Management = () => {
     }),
 
     columnHelper.accessor("total", {
-      header: "Tong mua",
+      header: "Tổng mua",
       cell: (info) =>
         info
           .getValue()
@@ -210,7 +210,7 @@ const Management = () => {
             <TableToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
 
             <TableContainer sx={{ minWidth: 800 }}>
-              <Table>
+              <Table size="small">
                 <TableHeader
                   order={order}
                   orderBy={orderBy}

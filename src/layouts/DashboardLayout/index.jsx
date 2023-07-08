@@ -16,13 +16,13 @@ import Sidebar from "./Sidebar";
 const APP_BAR_MOBILE = 48;
 const APP_BAR_DESKTOP = 64;
 
-const RootStyle = styled("div")({
+const RootStyle = styled("main")({
   display: "flex",
   overflow: "hidden",
   height: "100%",
 });
 
-const MainStyle = styled("div")(({ theme }) => ({
+const MainStyle = styled("section")(({ theme }) => ({
   flexGrow: 1,
   overflow: "auto",
   paddingBottom: "64px",
@@ -43,6 +43,7 @@ const DashboardLayout = () => {
         direction="column"
         spacing={4}
         sx={{
+          maxWidth: '100%',
           flexGrow: 1,
           ...(collapseClick && {
             ml: "102px",

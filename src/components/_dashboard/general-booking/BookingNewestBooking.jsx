@@ -8,11 +8,11 @@ import peopleFill from '@iconify/icons-eva/people-fill';
 import { useTheme } from '@mui/material/styles';
 import { Box, Stack, Avatar, Typography, Paper, CardHeader } from '@mui/material';
 // utils
-import { fDateTime } from '../../../utils/formatTime';
-import mockData from '../../../utils/mock-data';
+import { fDateTime } from 'src/utils/formatTime';
+import mockData from 'src/utils/mock-data';
 //
-import Label from '../../Label';
-import { CarouselControlsArrowsBasic1 } from '../../carousel';
+import Label from 'src/components/Label';
+import { CarouselControlsArrowsBasic1 } from 'src/components/carousel';
 
 // ----------------------------------------------------------------------
 

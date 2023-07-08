@@ -6,7 +6,7 @@ import { styled } from "@mui/material/styles";
 import { BookingIllustration } from "src/assets";
 
 // utils
-import { fShortenNumber } from "../../../utils/formatNumber";
+import { fShortenNumber } from "src/utils/formatNumber";
 
 // ----------------------------------------------------------------------
 
